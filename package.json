@@ -1,0 +1,31 @@
+{
+  "name": "mauerbrecher",
+  "version": "0.3.1",
+  "private": true,
+  "description": "Mauerbrecher: ball, paddle and a wall of bricks, 10 levels, a game for Gamehearth",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "gamehearth dev . --build \"npm run build:watch\" --client dist/dev-client",
+    "build": "vite build --config client/vite.config.ts --logLevel warn",
+    "build:watch": "vite build --config client/vite.config.ts --logLevel warn --watch --sourcemap --outDir ../dist/dev-client",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json && tsc -p client/tsconfig.json",
+    "check": "npm run build && gamehearth check .",
+    "pack": "npm run build && gamehearth pack ."
+  },
+  "dependencies": {
+    "@gamehearth/sdk": "^0.1.8",
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "gamehearth": "^0.10.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.1.0"
+  }
+}
